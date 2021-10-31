@@ -1,4 +1,4 @@
-FROM ruby:3.0.2
+FROM ruby:2.7.4
 ENV LANG C.UTF-8
 
 RUN apt-get update -qq && \
@@ -7,15 +7,15 @@ RUN apt-get update -qq && \
             nodejs
 
 RUN mkdir /app
-RUN mkdir /app/src
 
-ENV APP_ROOT /app/src
+ENV APP_ROOT /app
 WORKDIR $APP_ROOT
 
-ADD ./src/Gemfile $APP_ROOT/Gemfile
-ADD ./src/Gemfile.lock $APP_ROOT/Gemfile.lock
+ADD Gemfile $APP_ROOT/Gemfile
+ADD Gemfile.lock $APP_ROOT/Gemfile.lock
+# RUN wget https://rubygems.org/latest_specs.4.8.gz
 
+RUN gem install bundle
 RUN bundle install
-
 
 ADD . $APP_ROOT
