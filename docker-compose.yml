@@ -13,7 +13,7 @@ services:
     restart: always
   app:
     build: .
-    image: rails:2.7.4
+    image: ruby:2.7.4
     container_name: 'app'
     command: bundle exec rails s -p 80 -b '0.0.0.0'
     ports:

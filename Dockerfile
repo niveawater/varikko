@@ -15,7 +15,8 @@ ADD Gemfile $APP_ROOT/Gemfile
 ADD Gemfile.lock $APP_ROOT/Gemfile.lock
 # RUN wget https://rubygems.org/latest_specs.4.8.gz
 
-RUN gem install bundle
+RUN gem install bundler -v 2.1.4
+ENV BUNDLER_VERSION 2.1.4
 RUN bundle install
 
 ADD . $APP_ROOT
