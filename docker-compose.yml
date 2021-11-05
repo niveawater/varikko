@@ -6,8 +6,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data #MacOSの場合
-      # - app_postgre:/var/lib/postgresql/data #Windows
+      - app_postgre:/var/lib/postgresql/data #Windows
     environment:
       POSTGRES_USER: 'admin'
       POSTGRES_PASSWORD: 'admin-pass'
@@ -27,7 +26,7 @@ services:
       - postgres
     restart: always
 
-# #windows
-# volumes:
-#   app_postgre:
-#     external: true
+#windows
+volumes:
+  app_postgre:
+    external: true
