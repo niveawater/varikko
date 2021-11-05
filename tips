@@ -1,0 +1,49 @@
+
+image => container
+$ docker compose up -d --build
+    1 create docker image (template of virtual environment) based on image information writen in Dockerfile
+    2 make docker container (container including virtual environment to execute using template of virtual environment)
+    3 start  docker container 
+    docker compose : command when refering docker-compose.yml
+    up : launch the container
+    --build : option to build the image if you already have image, you don't need this option
+    -d : run container in background
+$ docker image ls
+    show the image in the container
+    $ docker image rm image_id
+        delete image
+$ docker container ls
+    show the running container
+$ docker compose exec container_name bash
+    connect to container and the command in the terminal is executed under environment of container
+$ exit
+    disconnect with container
+$ docker compose down
+    terminate docker and delete
+$ docekr start 
+    restart the stopped container
+$ docker volume create --name app_postgre
+    create volume
+$ docker-compose build
+$ docker-compose run app rails new . --force --database=postgresql --skip-bundle
+    create skelton app
+    --force : option for overwriting existing Gemfile
+    --database=postgresql : specify the database 
+    --skip-bundle : skip bundle (bundle at last)    
+
+don't manipulate linux environment from windows
+error
+bundle install error 
+    Gemfile.lockのファイルを削除してからもう一度bundle install
+
+https://github.com/niveawater/MyTask_valikko.git
+
+git add . 
+    add file to commit
+git commit -m "error"
+    commit 
+git push origin [branch_name(main)]
+
+access_token = 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
+
+docker exec -it app bash

@@ -21,7 +21,7 @@ services:
     environment:  
       VIRTUAL_PORT: 80
     volumes:
-      - .:/app/src
+      - .:/app
     depends_on:
       - postgres
     restart: always
