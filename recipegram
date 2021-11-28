@@ -1,0 +1,54 @@
+write into Gemfile
+  gem 'devise'
+  gem "refile", require: "refile/rails", github: 'manfe/refile'
+  gem "refile-mini_magick"
+  gem "bulma-rails"
+
+  bulma-rails : design
+
+bundle install  #in rails container
+
+change name from app/assets/stylesheets/application.css to application.scss write into
+  @import "bulma";
+
+#login function
+rails generate devise:install
+
+follow the setup (1.write above the end, 3.follow the source cord in youtube)
+  #source cord
+  <% if flash[:notice] %>
+    <div class="notification is-info">
+      <p class="notice"><%= notice %></p>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="notification is-danger">
+      <p class="alert"><%= alert %></p>
+    </div>
+  <% end %>
+
+rails g devise:views 
+  # app/views/deciseが作られる
+  # login sgreen : devise/sessions/new.html.erb
+  # new registration screen : devise/registrations/new.html.erb
+
+rails g(generate) devise user
+    migration file is made on db/migrate/
+
+write into db/migrate/file
+  t.string :username
+  t.text :profile
+  t.string :profile_image_id
+  t.timestamps null: false
+
+# reflect the data of migration_file
+rails db:migrate 
+  #can check table of database in db/schema
+
+write into views/devise/registrations/new.html.erb
+  <div class="field">
+  <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "email" %>
+  </div>
+
+rails routes # check the URL

@@ -6,7 +6,7 @@ RUN apt-get update -qq && \
             libpq-dev \
             nodejs
 
-# RUN mkdir /app
+#RUN mkdir /app
 
 ENV APP_ROOT /app
 WORKDIR $APP_ROOT
